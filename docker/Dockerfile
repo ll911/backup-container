@@ -1,5 +1,5 @@
 # This image provides a postgres installation from which to run backups 
-FROM postgres:11
+FROM registry.redhat.io/rhel8/postgresql-12
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
