@@ -1,5 +1,5 @@
 # This image provides a postgres installation from which to run backups 
-FROM registry.redhat.io/rhel8/postgresql-12
+FROM image-registry.openshift-image-registry.svc:5000/7f7ed0-tools/patroni:pg12-postgis3
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
