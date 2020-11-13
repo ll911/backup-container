@@ -26,7 +26,7 @@ ADD https://github.com/$SOURCE_REPO/go-crond/releases/download/$GOCROND_VERSION/
 
 USER root
 
-RUN chmod ug+x /usr/bin/go-crond
+RUN chmod 755 /usr/bin/go-crond
 # ========================================================================================================
 
 # ========================================================================================================
@@ -36,7 +36,7 @@ RUN echo $TZ > /etc/timezone
 # ========================================================================================================
 
 # Important - Reset to the base image's user account.
-USER 26
+USER 1001
 
 # Set the default CMD.
 CMD bash /backup.sh
