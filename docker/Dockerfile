@@ -20,10 +20,9 @@ COPY webhook-template.json /
 # CRON Jobs in OpenShift:
 #  - https://blog.danman.eu/cron-jobs-in-openshift/
 # --------------------------------------------------------------------------------------------------------
-ARG SOURCE_REPO=webdevops \
-    GOCROND_VERSION=20.7.0
+ARG GOCROND_VERSION=20.7.0
     
-ADD https://github.com/$SOURCE_REPO/go-crond/releases/download/$GOCROND_VERSION/go-crond-64-linux /usr/bin/go-crond
+ADD https://github.com/webdevops/go-crond/releases/download/$GOCROND_VERSION/go-crond-64-linux /usr/bin/go-crond
 
 USER root
 SHELL ["/bin/bash", "-c"]
