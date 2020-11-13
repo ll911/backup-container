@@ -20,23 +20,18 @@ COPY webhook-template.json /
 # CRON Jobs in OpenShift:
 #  - https://blog.danman.eu/cron-jobs-in-openshift/
 # --------------------------------------------------------------------------------------------------------
-ARG SOURCE_REPO=webdevops
-ARG GOCROND_VERSION=20.7.0
+ARG SOURCE_REPO=webdevops \
+    GOCROND_VERSION=20.7.0
+    
 ADD https://github.com/$SOURCE_REPO/go-crond/releases/download/$GOCROND_VERSION/go-crond-64-linux /usr/bin/go-crond
 
 USER root
-
-RUN apt-get -y update && apt-get -y install bsdmainutils && chmod 755 /usr/bin/go-crond
-# ========================================================================================================
-
-# ========================================================================================================
-# Perform operations that require root privilages here ...
-# --------------------------------------------------------------------------------------------------------
-RUN echo $TZ > /etc/timezone
-# ========================================================================================================
+SHELL ["/bin/bash", "-c"]
+RUN apt-get -y update && apt-get -y install bsdmainutils && chmod 755 /usr/bin/go-crond && echo $TZ > /etc/timezone
 
 # Important - Reset to the base image's user account.
 USER 1001
 
 # Set the default CMD.
-CMD bash /backup.sh
+#CMD bash /backup.sh
+ENTRYPOINT ["/bin/bash", "-c", "/backup.sh"]
