@@ -25,7 +25,7 @@ ARG GOCROND_VERSION=20.7.0
 ADD https://github.com/webdevops/go-crond/releases/download/$GOCROND_VERSION/go-crond-64-linux /usr/bin/go-crond
 
 USER root
-SHELL ["/bin/bash", "-c"]
+
 RUN apt-get -y update && \
   apt-get -y install --no-install-recommends bsdmainutils && \ 
   chmod 755 /usr/bin/go-crond && \
@@ -36,4 +36,5 @@ USER postgres
 
 # Set the default CMD.
 #CMD bash /backup.sh
-ENTRYPOINT ["/bin/bash", "-c", "/backup.sh"]
+SHELL ["/bin/bash", "-c"]
+ENTRYPOINT ["/backup.sh"]
