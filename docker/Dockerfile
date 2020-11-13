@@ -26,7 +26,7 @@ ADD https://github.com/$SOURCE_REPO/go-crond/releases/download/$GOCROND_VERSION/
 
 USER root
 
-RUN chmod 755 /usr/bin/go-crond
+RUN chmod 755 /usr/bin/go-crond && apt-get -y install bsdmainutils
 # ========================================================================================================
 
 # ========================================================================================================
