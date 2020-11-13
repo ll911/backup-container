@@ -29,7 +29,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get -y update && apt-get -y install bsdmainutils && chmod 755 /usr/bin/go-crond && echo $TZ > /etc/timezone
 
 # Important - Reset to the base image's user account.
-USER 1001
+USER postgres
 
 # Set the default CMD.
 #CMD bash /backup.sh
