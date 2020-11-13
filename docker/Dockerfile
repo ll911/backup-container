@@ -26,7 +26,10 @@ ADD https://github.com/webdevops/go-crond/releases/download/$GOCROND_VERSION/go-
 
 USER root
 SHELL ["/bin/bash", "-c"]
-RUN apt-get -y update && apt-get -y install bsdmainutils && chmod 755 /usr/bin/go-crond && echo $TZ > /etc/timezone
+RUN apt-get -y update && \
+  apt-get -y install --no-install-recommends bsdmainutils && \ 
+  chmod 755 /usr/bin/go-crond && \
+  echo $TZ > /etc/timezone
 
 # Important - Reset to the base image's user account.
 USER postgres
