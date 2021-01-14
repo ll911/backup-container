@@ -2,7 +2,7 @@
 pg-12
 #FROM image-registry.openshift-image-registry.svc:5000/7f7ed0-tools/patroni:pg12-postgis3
 pg-11
-FROM image-registry.openshift-image-registry.svc:5000/ffcb5f-tools/patroni
+FROM image-registry.openshift-image-registry.svc:5000/ffcb5f-tools/patroni:v11-latest
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
