@@ -1,5 +1,8 @@
 # This image provides a postgres installation from which to run backups 
-FROM image-registry.openshift-image-registry.svc:5000/7f7ed0-tools/patroni:pg12-postgis3
+pg-12
+#FROM image-registry.openshift-image-registry.svc:5000/7f7ed0-tools/patroni:pg12-postgis3
+pg-11
+FROM image-registry.openshift-image-registry.svc:5000/ffcb5f-tools/patroni
 
 # Change timezone to PST for convenience
 ENV TZ=PST8PDT
