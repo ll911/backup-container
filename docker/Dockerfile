@@ -1,7 +1,7 @@
 # This image provides a postgres installation from which to run backups 
 #pg-12
 #FROM image-registry.openshift-image-registry.svc:5000/7f7ed0-tools/patroni:pg12-postgis3
-FROM image-registry.openshift-image-registry.svc:5000/ju49sa-tools/patroni:latest
+FROM quay.io/llrealm/patroni-k8s:latest
 #pg-11
 #FROM image-registry.openshift-image-registry.svc:5000/ffcb5f-tools/patroni:v11-latest
 
